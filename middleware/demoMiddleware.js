@@ -3,10 +3,11 @@ const passport = require("passport");
 const { JWT } = require("../constant/demoConstant");
 const db = require("../models/index");
 
-const verifyDemo = (req, resolve, reject) => async (err, demo,info ) => {
+const verifyDemo = (req, resolve, reject) => async (err, demo, info) => {
   if (err || info || !demo) {
     return reject("Unauthorized demo");
   }
+  console.log();
   req.demo = demo;
   resolve();
 };
