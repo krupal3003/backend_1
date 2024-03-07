@@ -1,4 +1,4 @@
-const  DataType  = require("sequelize");
+const DataType = require("sequelize");
 const sequelize = require("../config/dbConnection.js");
 const sequelizePaginate = require("sequelize-paginate");
 const sequelizeTransforms = require("sequelize-transforms");
@@ -11,7 +11,7 @@ let DemoData = sequelize.define(
     id: {
       type: DataType.INTEGER,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     name: { type: DataType.STRING, allowNull: false },
     email: { type: DataType.STRING, allowNull: false },
@@ -23,6 +23,7 @@ let DemoData = sequelize.define(
     updatedAt: "updateAt",
   }
 );
+console.log();
 
 DemoData.beforeCreate(async (demo) => {
   try {
