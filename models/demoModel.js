@@ -23,7 +23,6 @@ let DemoData = sequelize.define(
     updatedAt: "updateAt",
   }
 );
-console.log();
 
 DemoData.beforeCreate(async (demo) => {
   try {

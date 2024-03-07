@@ -1,5 +1,5 @@
 const joi = require("joi");
-const validationSchema = require("../validation/demoValidation");
+const  schemaKeys  = require("../schema/demoSchema");
 
 exports.validateWithJoi = (payload, schemaKeys) => {
   const { error } = schemaKeys.validate(payload, {

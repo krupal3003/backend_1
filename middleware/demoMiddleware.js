@@ -1,3 +1,4 @@
+
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const { JWT } = require("../constant/demoConstant");
@@ -7,7 +8,6 @@ const verifyDemo = (req, resolve, reject) => async (err, demo, info) => {
   if (err || info || !demo) {
     return reject("Unauthorized demo");
   }
-  console.log();
   req.demo = demo;
   resolve();
 };
@@ -30,5 +30,6 @@ const auth = () => async (req, res, next) => {
     console.log("ERROR from middleware ", error.toString());
   }
 };
+
 
 module.exports = auth;

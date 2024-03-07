@@ -1,32 +1,16 @@
 const asyncHandler = require("express-async-handler");
 const { generateToken } = require("../utils/generateToken");
 const db = require("../models/index");
-const demoSchema = require("../validation/demoValidation");
+const demoSchema = require("../schema/demoSchema");
 const validation = require("../utils/validation");
 const Demo = db.demo;
 
 exports.createDemo = asyncHandler(async (req, res) => {
   try {
     const demoData = req.body;
-    console.log();
-    const valid = validation.validateWithJoi(demoData, demoSchema.schemaKeys);
-    if (!valid.isValid) {
-      return res.send({
-        message: `Invalid values in parameters, ${valid.msg}`,
-      });
-    }
-
-    if (
-      demoData.name.trim().length === 0 ||
-      demoData.email.trim().length === 0 ||
-      demoData.password.trim().length === 0
-    ) {
-      res.json({ message: "Data can not be empty" });
-    } else {
-      await Demo.create(demoData)
-        .then((data) => res.status(201).json({ data: data }))
-        .catch((err) => res.json(err.toString()));
-    }
+    await Demo.create(demoData)
+      .then((data) => res.status(201).json({ data: data }))
+      .catch((err) => res.json(err.toString()));
   } catch (error) {
     res
       .status(400)
