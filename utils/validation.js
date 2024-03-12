@@ -1,8 +1,8 @@
 const joi = require("joi");
-const  schemaKeys  = require("../schema/demoSchema");
+const  schemaKey  = require("../schema/demoSchema");
 
-exports.validateWithJoi = (payload, schemaKeys) => {
-  const { error } = schemaKeys.validate(payload, {
+exports.validateWithJoi = (payload, schemaKey) => {
+  const { error } = schemaKey.validate(payload, {
     abortEarly: false,
     convert: false,
   });

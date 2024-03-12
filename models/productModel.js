@@ -11,6 +11,9 @@ const Product = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
+    demoId: {
+      type: DataType.INTEGER,
+    },
     product_name: {
       type: DataType.STRING,
       allowNull: false,
